@@ -67,10 +67,8 @@ public class TimeChange extends Time {
         String startTime = startTimeEditText.getText().toString();
         String endTime = endTimeEditText.getText().toString();
         if (startTime.isEmpty() || endTime.isEmpty()) {
-            // Если время не введено, подсветка красным
             getActivity().findViewById(R.id.tab_layout).setBackgroundColor(Color.RED);
         } else {
-            // Если время введено, подсветка зеленым
             getActivity().findViewById(R.id.tab_layout).setBackgroundColor(Color.GREEN);
         }
     }
