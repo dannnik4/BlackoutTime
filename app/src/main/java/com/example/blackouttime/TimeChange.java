@@ -63,13 +63,13 @@ public class TimeChange extends Time {
         return rootView;
     }
 
-//    private void checkTimeInputs(EditText startTimeEditText, EditText endTimeEditText) {
-//        String startTime = startTimeEditText.getText().toString();
-//        String endTime = endTimeEditText.getText().toString();
-//        if (startTime.isEmpty() || endTime.isEmpty()) {
-//            getActivity().findViewById(R.id.tab_layout).setBackgroundColor(Color.RED);
-//        } else {
-//            getActivity().findViewById(R.id.tab_layout).setBackgroundColor(Color.GREEN);
-//        }
+    private void checkTimeInputs(EditText startTimeEditText, EditText endTimeEditText) {
+        String startTime = startTimeEditText.getText().toString();
+        String endTime = endTimeEditText.getText().toString();
+        if (startTime.isEmpty() || endTime.isEmpty()) {
+            getActivity().findViewById(R.id.tab_layout).setBackgroundColor(Color.RED);
+        } else {
+            getActivity().findViewById(R.id.tab_layout).setBackgroundColor(Color.GREEN);
+        }
     }
 }
