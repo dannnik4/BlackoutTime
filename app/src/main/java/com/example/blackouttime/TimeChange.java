@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 
-import com.example.blackouttime.Time;
-
 public class TimeChange extends Time {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
