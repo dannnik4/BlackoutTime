@@ -2,32 +2,29 @@ package com.example.blackouttime;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.text.Editable;
-import android.text.TextWatcher;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
-public class TimeChange extends Time {
+public class TimeChange extends Fragment {
 
-    private static final String ARG_SECTION_NUMBER = "section_number";
-
-    public static TimeChange newInstance(int sectionNumber) {
-        TimeChange fragment = new TimeChange();
+    public static TimeChange newInstance() {
         Bundle args = new Bundle();
-        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+        TimeChange fragment = new TimeChange();
         fragment.setArguments(args);
         return fragment;
     }
 
-    public TimeChange() {
-    }
-
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.time, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_time_change, container, false);
 
         EditText startTimeEditText = rootView.findViewById(R.id.start_time);
         EditText endTimeEditText = rootView.findViewById(R.id.end_time);
@@ -64,10 +61,11 @@ public class TimeChange extends Time {
     private void checkTimeInputs(EditText startTimeEditText, EditText endTimeEditText) {
         String startTime = startTimeEditText.getText().toString();
         String endTime = endTimeEditText.getText().toString();
+        View tabLayout = getActivity().findViewById(R.id.tab_layout);
         if (startTime.isEmpty() || endTime.isEmpty()) {
-            getActivity().findViewById(R.id.tab_layout).setBackgroundColor(Color.RED);
+            tabLayout.setBackgroundColor(Color.RED);
         } else {
-            getActivity().findViewById(R.id.tab_layout).setBackgroundColor(Color.GREEN);
+            tabLayout.setBackgroundColor(Color.GREEN);
         }
     }
 }
