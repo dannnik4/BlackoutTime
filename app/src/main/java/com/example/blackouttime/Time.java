@@ -14,7 +14,7 @@ public class Time extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_time, container, false);
+        View rootView = inflater.inflate(R.layout.time, container, false);
 
         EditText startTimeEditText = rootView.findViewById(R.id.start_time);
         EditText endTimeEditText = rootView.findViewById(R.id.end_time);
