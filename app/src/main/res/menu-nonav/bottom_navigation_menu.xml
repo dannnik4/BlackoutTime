@@ -3,11 +3,11 @@
     <item
         android:id="@+id/todaytab"
         android:enabled="true"
-        android:icon="@drawable/"
+        android:icon="@drawable/baseline_today_24"
         android:title="Сегодня"/>
     <item
         android:id="@+id/tommorowtab"
         android:enabled="true"
-        android:icon="@drawable/"
+        android:icon="@drawable/baseline_tommorow_24"
         android:title="Завтра"/>
 </menu>
