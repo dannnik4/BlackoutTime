@@ -1,4 +1,6 @@
 package com.example.blackouttime;
 
-public class TodayTab {
+import androidx.fragment.app.Fragment;
+
+public class TodayTab  extends Fragment {
 }
