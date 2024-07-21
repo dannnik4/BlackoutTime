@@ -1,4 +1,6 @@
 package com.example.blackouttime;
 
-public class TommorowTab {
+import androidx.fragment.app.Fragment;
+
+public class TommorowTab  extends Fragment {
 }
