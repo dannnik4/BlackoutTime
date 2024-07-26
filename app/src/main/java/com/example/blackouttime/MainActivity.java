@@ -22,15 +22,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment;
-                switch (item.getItemId()) {
-                    case R.id.todaytab:
-                        fragment = new TodayTab();
-                        break;
-                    case R.id.tommorowtab:
-                        fragment = new TommorowTab();
-                        break;
-                    default:
-                        return false;
+                int itemId = item.getItemId();
+                if (itemId == R.id.todaytab) {
+                    fragment = new TodayTab();
+                } else if (itemId == R.id.tommorowtab) {
+                    fragment = new TommorowTab();
+                } else {
+                    return false;
                 }
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container, fragment);
@@ -39,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, new TodayTab());
-        transaction.commit();
+        // Убедитесь, что загружается первый фрагмент по умолчанию
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TodayTab()).commit();
+        }
     }
-
 }
