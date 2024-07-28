@@ -10,6 +10,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,6 +22,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault());
+
+        String todayDate = dateFormat.format(calendar.getTime());
+
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
+        String tomorrowDate = dateFormat.format(calendar.getTime());
+
+        bottomNavigationView.getMenu().findItem(R.id.todaytab).setTitle(todayDate + " (Сегодня)");
+        bottomNavigationView.getMenu().findItem(R.id.tommorowtab).setTitle(tomorrowDate + " (Завтра)");
+
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -37,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Убедитесь, что загружается первый фрагмент по умолчанию
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TodayTab()).commit();
         }
