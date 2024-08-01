@@ -6,8 +6,8 @@
         android:icon="@drawable/baseline_today_24"
         android:title="Сегодня"/>
     <item
-        android:id="@+id/tommorowtab"
+        android:id="@+id/tomorrowtab"
         android:enabled="true"
-        android:icon="@drawable/baseline_tommorow_24"
+        android:icon="@drawable/baseline_tomorrow_24"
         android:title="Завтра"/>
 </menu>
