@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         String tomorrowDate = dateFormat.format(calendar.getTime());
 
         bottomNavigationView.getMenu().findItem(R.id.todaytab).setTitle(todayDate + " (Сегодня)");
-        bottomNavigationView.getMenu().findItem(R.id.tommorowtab).setTitle(tomorrowDate + " (Завтра)");
+        bottomNavigationView.getMenu().findItem(R.id.tomorrowtab).setTitle(tomorrowDate + " (Завтра)");
 
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
                 int itemId = item.getItemId();
                 if (itemId == R.id.todaytab) {
                     fragment = new TodayTab();
-                } else if (itemId == R.id.tommorowtab) {
-                    fragment = new TommorowTab();
+                } else if (itemId == R.id.tomorrowtab) {
+                    fragment = new TomorrowTab();
                 } else {
                     return false;
                 }
