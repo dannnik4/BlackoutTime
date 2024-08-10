@@ -5,14 +5,16 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class TodayTab extends Fragment {
 
@@ -34,8 +36,7 @@ public class TodayTab extends Fragment {
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -43,8 +44,7 @@ public class TodayTab extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
-            }
+            public void afterTextChanged(Editable editable) {}
         };
 
         startTimeEditText.addTextChangedListener(textWatcher);
@@ -65,11 +65,13 @@ public class TodayTab extends Fragment {
         boolean isIntenseBlackoutTimeValid = noIntenseBlackoutCheckBox.isChecked() ||
                 (!intenseStartTimeEditText.getText().toString().isEmpty() && !intenseEndTimeEditText.getText().toString().isEmpty());
 
-        View tabLayout = getActivity().findViewById(R.id.bottom_navigation_view);
+        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation_view);
+        MenuItem todayTab = bottomNavigationView.getMenu().findItem(R.id.todaytab);
+
         if (isBlackoutTimeValid && isIntenseBlackoutTimeValid) {
-            tabLayout.findViewById(R.id.todaytab).setBackgroundColor(Color.GREEN);
+            todayTab.getIcon().setTint(Color.GREEN);
         } else {
-            tabLayout.findViewById(R.id.todaytab).setBackgroundColor(Color.RED);
+            todayTab.getIcon().setTint(Color.RED);
         }
     }
 }
