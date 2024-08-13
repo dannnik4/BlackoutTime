@@ -2,14 +2,11 @@ package com.example.blackouttime;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
