@@ -1,6 +1,8 @@
 package com.example.blackouttime;
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -72,9 +74,13 @@ public class TodayTab extends Fragment {
         MenuItem todayTab = bottomNavigationView.getMenu().findItem(R.id.todaytab);
 
         if (isBlackoutTimeValid && isIntenseBlackoutTimeValid) {
-            todayTab.getIcon().setTint(Color.GREEN);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                todayTab.setIconTintList(ColorStateList.valueOf(Color.GREEN));
+            }
         } else {
-            todayTab.getIcon().setTint(Color.RED);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                todayTab.setIconTintList(ColorStateList.valueOf(Color.RED));
+            }
         }
     }
 }
