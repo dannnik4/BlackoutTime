@@ -82,5 +82,6 @@ public class TodayTab extends Fragment {
                 todayTab.setIconTintList(ColorStateList.valueOf(Color.RED));
             }
         }
+        bottomNavigationView.invalidate();
     }
 }
