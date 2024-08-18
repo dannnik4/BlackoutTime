@@ -82,5 +82,6 @@ public class TomorrowTab extends Fragment {
                 tomorrowTab.setIconTintList(ColorStateList.valueOf(Color.RED));
             }
         }
+        bottomNavigationView.invalidate();
     }
 }
