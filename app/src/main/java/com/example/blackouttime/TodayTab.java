@@ -63,25 +63,25 @@ public class TodayTab extends Fragment {
         return rootView;
     }
 
-    private void checkTimeInputs() {
-        boolean isBlackoutTimeValid = noBlackoutCheckBox.isChecked() ||
-                (!startTimeEditText.getText().toString().isEmpty() && !endTimeEditText.getText().toString().isEmpty());
-
-        boolean isIntenseBlackoutTimeValid = noIntenseBlackoutCheckBox.isChecked() ||
-                (!intenseStartTimeEditText.getText().toString().isEmpty() && !intenseEndTimeEditText.getText().toString().isEmpty());
-
-        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation_view);
-        MenuItem todayTab = bottomNavigationView.getMenu().findItem(R.id.todaytab);
-
-        if (isBlackoutTimeValid && isIntenseBlackoutTimeValid) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                todayTab.setIconTintList(ColorStateList.valueOf(Color.GREEN));
-            }
-        } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                todayTab.setIconTintList(ColorStateList.valueOf(Color.RED));
-            }
-        }
-        bottomNavigationView.invalidate();
-    }
+//    private void checkTimeInputs() {
+//        boolean isBlackoutTimeValid = noBlackoutCheckBox.isChecked() ||
+//                (!startTimeEditText.getText().toString().isEmpty() && !endTimeEditText.getText().toString().isEmpty());
+//
+//        boolean isIntenseBlackoutTimeValid = noIntenseBlackoutCheckBox.isChecked() ||
+//                (!intenseStartTimeEditText.getText().toString().isEmpty() && !intenseEndTimeEditText.getText().toString().isEmpty());
+//
+//        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation_view);
+//        MenuItem todayTab = bottomNavigationView.getMenu().findItem(R.id.todaytab);
+//
+//        if (isBlackoutTimeValid && isIntenseBlackoutTimeValid) {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                todayTab.setIconTintList(ColorStateList.valueOf(Color.GREEN));
+//            }
+//        } else {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                todayTab.setIconTintList(ColorStateList.valueOf(Color.RED));
+//            }
+//        }
+//        bottomNavigationView.invalidate();
+//    }
 }
