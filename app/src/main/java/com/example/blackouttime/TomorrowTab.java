@@ -22,7 +22,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class TomorrowTab extends Fragment {
 
     private EditText startTimeEditText, endTimeEditText, intenseStartTimeEditText, intenseEndTimeEditText;
-    private CheckBox noBlackoutCheckBox, noIntenseBlackoutCheckBox;
 
     @Nullable
     @Override
@@ -34,54 +33,6 @@ public class TomorrowTab extends Fragment {
         intenseStartTimeEditText = rootView.findViewById(R.id.intense_start_time);
         intenseEndTimeEditText = rootView.findViewById(R.id.intense_end_time);
 
-        noBlackoutCheckBox = rootView.findViewById(R.id.no_blackout);
-        noIntenseBlackoutCheckBox = rootView.findViewById(R.id.no_intense_blackout);
-
-        TextWatcher textWatcher = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                checkTimeInputs();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-        };
-
-        startTimeEditText.addTextChangedListener(textWatcher);
-        endTimeEditText.addTextChangedListener(textWatcher);
-        intenseStartTimeEditText.addTextChangedListener(textWatcher);
-        intenseEndTimeEditText.addTextChangedListener(textWatcher);
-
-        noBlackoutCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> checkTimeInputs());
-        noIntenseBlackoutCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> checkTimeInputs());
-
         return rootView;
-    }
-
-    private void checkTimeInputs() {
-        boolean isBlackoutTimeValid = noBlackoutCheckBox.isChecked() ||
-                (!startTimeEditText.getText().toString().isEmpty() && !endTimeEditText.getText().toString().isEmpty());
-
-        boolean isIntenseBlackoutTimeValid = noIntenseBlackoutCheckBox.isChecked() ||
-                (!intenseStartTimeEditText.getText().toString().isEmpty() && !intenseEndTimeEditText.getText().toString().isEmpty());
-
-        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation_view);
-        MenuItem tomorrowTab = bottomNavigationView.getMenu().findItem(R.id.todaytab);
-
-        if (isBlackoutTimeValid && isIntenseBlackoutTimeValid) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                tomorrowTab.setIconTintList(ColorStateList.valueOf(Color.GREEN));
-            }
-        } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                tomorrowTab.setIconTintList(ColorStateList.valueOf(Color.RED));
-            }
-        }
-        bottomNavigationView.invalidate();
     }
 }
