@@ -10,8 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 public class TomorrowTab extends Fragment {
 
     private EditText startTimeEditText, endTimeEditText, intenseStartTimeEditText, intenseEndTimeEditText;
