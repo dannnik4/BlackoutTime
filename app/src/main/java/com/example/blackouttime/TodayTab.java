@@ -24,6 +24,6 @@ public class TodayTab extends Fragment {
         intenseStartTimeEditText = rootView.findViewById(R.id.intense_start_time);
         intenseEndTimeEditText = rootView.findViewById(R.id.intense_end_time);
 
-//        return rootView;
+        return rootView;
     }
 }
