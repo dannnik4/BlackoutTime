@@ -18,7 +18,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="79dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <EditText
@@ -35,11 +35,23 @@
                 android:layout_weight="1"
                 android:hint="Конец времени" />
 
-            <CheckBox
-                android:id="@+id/no_blackout"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Нет отключений" />
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/all_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Весь день" />
+
+                <CheckBox
+                    android:id="@+id/no_blackout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Нет отключений"
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -67,11 +79,23 @@
                 android:layout_weight="1"
                 android:hint="Конец времени" />
 
-            <CheckBox
-                android:id="@+id/no_intense_blackout"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Нет отключений" />
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/intense_all_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Весь день" />
+
+                <CheckBox
+                    android:id="@+id/no_intense_blackout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Нет отключений"
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
