@@ -34,23 +34,23 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.getMenu().findItem(R.id.todaytab).setTitle(todayDate + " (Сегодня)");
         bottomNavigationView.getMenu().findItem(R.id.tomorrowtab).setTitle(tomorrowDate + " (Завтра)");
 
-        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragment;
-                int itemId = item.getItemId();
-                if (itemId == R.id.todaytab) {
-                    fragment = new TodayTab();
-                } else if (itemId == R.id.tomorrowtab) {
-                    fragment = new TomorrowTab();
-                } else {
-                    return false;
-                }
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, fragment);
-                transaction.commit();
-                return true;
-            }
-        });
-    }
+//        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                Fragment fragment;
+//                int itemId = item.getItemId();
+//                if (itemId == R.id.todaytab) {
+//                    fragment = new TodayTab();
+//                } else if (itemId == R.id.tomorrowtab) {
+//                    fragment = new TomorrowTab();
+//                } else {
+//                    return false;
+//                }
+//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                transaction.replace(R.id.fragment_container, fragment);
+//                transaction.commit();
+//                return true;
+//            }
+//        });
+//    }
 }
