@@ -50,8 +50,8 @@
                     android:id="@+id/no_blackout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Нет отключений"
-                    android:layout_marginTop="-15dp" />
+                    android:layout_marginTop="-15dp"
+                    android:text="Нет отключений" />
             </LinearLayout>
         </LinearLayout>
 
@@ -95,8 +95,8 @@
                     android:id="@+id/no_intense_blackout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Нет отключений"
-                    android:layout_marginTop="-15dp" />
+                    android:layout_marginTop="-15dp"
+                    android:text="Нет отключений" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
