@@ -52,5 +52,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TodayTab()).commit();
+        }
     }
 }
