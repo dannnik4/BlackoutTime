@@ -2,14 +2,10 @@ package com.example.blackouttime;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
@@ -21,7 +17,6 @@ import java.util.Calendar;
 
 public class TodayTab extends Fragment {
 
-    private TextView startTimeTextView, endTimeTextView, intenseStartTimeTextView, intenseEndTimeTextView;
     private CheckBox noBlackoutCheckBox, allDayCheckBox, noIntenseBlackoutCheckBox, intenseAllDayCheckBox;
     private BlackoutViewModel viewModel;
 
@@ -32,28 +27,20 @@ public class TodayTab extends Fragment {
 
         viewModel = new ViewModelProvider(requireActivity()).get(BlackoutViewModel.class);
 
-        startTimeTextView = rootView.findViewById(R.id.start_time);
-        endTimeTextView = rootView.findViewById(R.id.end_time);
-        intenseStartTimeTextView = rootView.findViewById(R.id.intense_start_time);
-        intenseEndTimeTextView = rootView.findViewById(R.id.intense_end_time);
         noBlackoutCheckBox = rootView.findViewById(R.id.no_blackout);
         allDayCheckBox = rootView.findViewById(R.id.all_day);
         noIntenseBlackoutCheckBox = rootView.findViewById(R.id.no_intense_blackout);
         intenseAllDayCheckBox = rootView.findViewById(R.id.intense_all_day);
 
-        startTimeTextView.setText(viewModel.startTime);
-        endTimeTextView.setText(viewModel.endTime);
-        intenseStartTimeTextView.setText(viewModel.intenseStartTime);
-        intenseEndTimeTextView.setText(viewModel.intenseEndTime);
         noBlackoutCheckBox.setChecked(viewModel.noBlackoutChecked);
         allDayCheckBox.setChecked(viewModel.allDayChecked);
         noIntenseBlackoutCheckBox.setChecked(viewModel.noIntenseBlackoutChecked);
         intenseAllDayCheckBox.setChecked(viewModel.intenseAllDayChecked);
 
-        startTimeTextView.setOnClickListener(v -> showTimePickerDialog((TextView) v, "start"));
-        endTimeTextView.setOnClickListener(v -> showTimePickerDialog((TextView) v, "end"));
-        intenseStartTimeTextView.setOnClickListener(v -> showTimePickerDialog((TextView) v, "intense_start"));
-        intenseEndTimeTextView.setOnClickListener(v -> showTimePickerDialog((TextView) v, "intense_end"));
+        rootView.findViewById(R.id.select_start_time).setOnClickListener(v -> showTimePickerDialog("start"));
+        rootView.findViewById(R.id.select_end_time).setOnClickListener(v -> showTimePickerDialog("end"));
+        rootView.findViewById(R.id.select_intense_start_time).setOnClickListener(v -> showTimePickerDialog("intense_start"));
+        rootView.findViewById(R.id.select_intense_end_time).setOnClickListener(v -> showTimePickerDialog("intense_end"));
 
         noBlackoutCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.noBlackoutChecked = isChecked);
         allDayCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.allDayChecked = isChecked);
@@ -63,7 +50,7 @@ public class TodayTab extends Fragment {
         return rootView;
     }
 
-    private void showTimePickerDialog(final TextView timeTextView, String type) {
+    private void showTimePickerDialog(String type) {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
@@ -71,7 +58,6 @@ public class TodayTab extends Fragment {
         TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),
                 (TimePicker view, int hourOfDay, int minuteOfHour) -> {
                     String formattedTime = String.format("%02d:%02d", hourOfDay, minuteOfHour);
-                    timeTextView.setText(formattedTime);
 
                     if (type.equals("start")) {
                         viewModel.startTime = formattedTime;
