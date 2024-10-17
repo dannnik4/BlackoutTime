@@ -22,33 +22,33 @@ public class TodayTab extends Fragment {
 
     @Nullable
     @Override
-//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        View rootView = inflater.inflate(R.layout.fragment_layout, container, false);
-//
-//        viewModel = new ViewModelProvider(requireActivity()).get(BlackoutViewModel.class);
-//
-//        noBlackoutCheckBox = rootView.findViewById(R.id.no_blackout);
-//        allDayCheckBox = rootView.findViewById(R.id.all_day);
-//        noIntenseBlackoutCheckBox = rootView.findViewById(R.id.no_intense_blackout);
-//        intenseAllDayCheckBox = rootView.findViewById(R.id.intense_all_day);
-//
-//        noBlackoutCheckBox.setChecked(viewModel.noBlackoutChecked);
-//        allDayCheckBox.setChecked(viewModel.allDayChecked);
-//        noIntenseBlackoutCheckBox.setChecked(viewModel.noIntenseBlackoutChecked);
-//        intenseAllDayCheckBox.setChecked(viewModel.intenseAllDayChecked);
-//
-//        rootView.findViewById(R.id.select_start_time).setOnClickListener(v -> showTimePickerDialog("start"));
-//        rootView.findViewById(R.id.select_end_time).setOnClickListener(v -> showTimePickerDialog("end"));
-//        rootView.findViewById(R.id.select_intense_start_time).setOnClickListener(v -> showTimePickerDialog("intense_start"));
-//        rootView.findViewById(R.id.select_intense_end_time).setOnClickListener(v -> showTimePickerDialog("intense_end"));
-//
-//        noBlackoutCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.noBlackoutChecked = isChecked);
-//        allDayCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.allDayChecked = isChecked);
-//        noIntenseBlackoutCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.noIntenseBlackoutChecked = isChecked);
-//        intenseAllDayCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.intenseAllDayChecked = isChecked);
-//
-//        return rootView;
-//    }
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_layout, container, false);
+
+        viewModel = new ViewModelProvider(requireActivity()).get(BlackoutViewModel.class);
+
+        noBlackoutCheckBox = rootView.findViewById(R.id.no_blackout);
+        allDayCheckBox = rootView.findViewById(R.id.all_day);
+        noIntenseBlackoutCheckBox = rootView.findViewById(R.id.no_intense_blackout);
+        intenseAllDayCheckBox = rootView.findViewById(R.id.intense_all_day);
+
+        noBlackoutCheckBox.setChecked(viewModel.noBlackoutChecked);
+        allDayCheckBox.setChecked(viewModel.allDayChecked);
+        noIntenseBlackoutCheckBox.setChecked(viewModel.noIntenseBlackoutChecked);
+        intenseAllDayCheckBox.setChecked(viewModel.intenseAllDayChecked);
+
+        rootView.findViewById(R.id.select_start_time).setOnClickListener(v -> showTimePickerDialog("start"));
+        rootView.findViewById(R.id.select_end_time).setOnClickListener(v -> showTimePickerDialog("end"));
+        rootView.findViewById(R.id.select_intense_start_time).setOnClickListener(v -> showTimePickerDialog("intense_start"));
+        rootView.findViewById(R.id.select_intense_end_time).setOnClickListener(v -> showTimePickerDialog("intense_end"));
+
+        noBlackoutCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.noBlackoutChecked = isChecked);
+        allDayCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.allDayChecked = isChecked);
+        noIntenseBlackoutCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.noIntenseBlackoutChecked = isChecked);
+        intenseAllDayCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.intenseAllDayChecked = isChecked);
+
+        return rootView;
+    }
 
     private void showTimePickerDialog(String type) {
         Calendar calendar = Calendar.getInstance();
