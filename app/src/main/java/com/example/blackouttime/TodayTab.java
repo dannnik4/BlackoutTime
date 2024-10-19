@@ -37,10 +37,10 @@ public class TodayTab extends Fragment {
         noIntenseBlackoutCheckBox.setChecked(viewModel.noIntenseBlackoutChecked);
         intenseAllDayCheckBox.setChecked(viewModel.intenseAllDayChecked);
 
-        rootView.findViewById(R.id.select_start_time).setOnClickListener(v -> showTimePickerDialog("start"));
-        rootView.findViewById(R.id.select_end_time).setOnClickListener(v -> showTimePickerDialog("end"));
-        rootView.findViewById(R.id.select_intense_start_time).setOnClickListener(v -> showTimePickerDialog("intense_start"));
-        rootView.findViewById(R.id.select_intense_end_time).setOnClickListener(v -> showTimePickerDialog("intense_end"));
+//        rootView.findViewById(R.id.select_start_time).setOnClickListener(v -> showTimePickerDialog("start"));
+//        rootView.findViewById(R.id.select_end_time).setOnClickListener(v -> showTimePickerDialog("end"));
+//        rootView.findViewById(R.id.select_intense_start_time).setOnClickListener(v -> showTimePickerDialog("intense_start"));
+//        rootView.findViewById(R.id.select_intense_end_time).setOnClickListener(v -> showTimePickerDialog("intense_end"));
 
         noBlackoutCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.noBlackoutChecked = isChecked);
         allDayCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.allDayChecked = isChecked);
