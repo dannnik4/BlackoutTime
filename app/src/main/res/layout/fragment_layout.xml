@@ -21,23 +21,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/start_time"
+            <Button
+                android:id="@+id/select_start_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Начало"
-                android:inputType="number"
-                android:maxLength="5" />
+                android:text="Выбрать начало" />
 
-            <EditText
-                android:id="@+id/end_time"
+            <Button
+                android:id="@+id/select_end_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Конец"
-                android:inputType="number"
-                android:maxLength="5" />
+                android:text="Выбрать конец" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -70,23 +66,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/intense_start_time"
+            <Button
+                android:id="@+id/select_intense_start_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Начало усиленных"
-                android:inputType="number"
-                android:maxLength="5" />
+                android:text="Начало усиленных отключений" />
 
-            <EditText
-                android:id="@+id/intense_end_time"
+            <Button
+                android:id="@+id/select_intense_end_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Конец усиленных"
-                android:inputType="number"
-                android:maxLength="5" />
+                android:text="Конец усиленных отключений" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
