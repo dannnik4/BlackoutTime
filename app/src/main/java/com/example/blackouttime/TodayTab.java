@@ -25,7 +25,7 @@ public class TodayTab extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_layout, container, false);
 
-//        viewModel = new ViewModelProvider(requireActivity()).get(BlackoutViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(BlackoutViewModel.class);
 
         noBlackoutCheckBox = rootView.findViewById(R.id.no_blackout);
         allDayCheckBox = rootView.findViewById(R.id.all_day);
