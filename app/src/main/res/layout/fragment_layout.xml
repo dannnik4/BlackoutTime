@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:layout_marginStart="4dp"> <!-- Отступ слева от флажков -->
+                android:layout_marginStart="4dp">
 
                 <CheckBox
                     android:id="@+id/intense_all_day"
