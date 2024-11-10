@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="8dp"> <!-- Отступ сверху строки -->
+            android:layout_marginTop="8dp">
 
             <Button
                 android:id="@+id/select_intense_start_time"
