@@ -80,7 +80,7 @@
                 android:layout_weight="1"
                 android:text="Начало усиленных отключений"
                 android:background="@drawable/button_background"
-                android:layout_marginEnd="4dp" /> <!-- Отступ справа от кнопки -->
+                android:layout_marginEnd="4dp" />
 
             <Button
                 android:id="@+id/select_intense_end_time"
