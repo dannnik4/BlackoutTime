@@ -55,20 +55,19 @@ public class TodayTab extends Fragment {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
 
-        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),
-                (TimePicker view, int hourOfDay, int minuteOfHour) -> {
-                    String formattedTime = String.format("%02d:%02d", hourOfDay, minuteOfHour);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), (TimePicker view, int hourOfDay, int minuteOfHour) -> {
+            String formattedTime = String.format("%02d:%02d", hourOfDay, minuteOfHour);
 
-                    if (type.equals("start")) {
-                        viewModel.startTime = formattedTime;
-                    } else if (type.equals("end")) {
-                        viewModel.endTime = formattedTime;
-                    } else if (type.equals("intense_start")) {
-                        viewModel.intenseStartTime = formattedTime;
-                    } else if (type.equals("intense_end")) {
-                        viewModel.intenseEndTime = formattedTime;
-                    }
-                }, hour, minute, true);
+            if (type.equals("start")) {
+                viewModel.startTime = formattedTime;
+            } else if (type.equals("end")) {
+                viewModel.endTime = formattedTime;
+            } else if (type.equals("intense_start")) {
+                viewModel.intenseStartTime = formattedTime;
+            } else if (type.equals("intense_end")) {
+                viewModel.intenseEndTime = formattedTime;
+            }
+        }, hour, minute, true);
         timePickerDialog.show();
     }
 }
