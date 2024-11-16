@@ -52,8 +52,8 @@ public class TodayTab extends Fragment {
 
     private void showTimePickerDialog(String type) {
         Calendar calendar = Calendar.getInstance();
-//        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-//        int minute = calendar.get(Calendar.MINUTE);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), (TimePicker view, int hourOfDay, int minuteOfHour) -> {
             String formattedTime = String.format("%02d:%02d", hourOfDay, minuteOfHour);
