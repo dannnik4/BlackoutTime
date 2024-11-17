@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TimePicker;
 
@@ -18,6 +19,7 @@ import java.util.Calendar;
 public class TomorrowTab extends Fragment {
 
     private CheckBox noBlackoutCheckBox, allDayCheckBox, noIntenseBlackoutCheckBox, intenseAllDayCheckBox;
+    private Button selectStartTimeButton, selectEndTimeButton, selectIntenseStartTimeButton, selectIntenseEndTimeButton;
     private BlackoutViewModel viewModel;
 
     @Nullable
@@ -32,15 +34,25 @@ public class TomorrowTab extends Fragment {
         noIntenseBlackoutCheckBox = rootView.findViewById(R.id.no_intense_blackout);
         intenseAllDayCheckBox = rootView.findViewById(R.id.intense_all_day);
 
+        selectStartTimeButton = rootView.findViewById(R.id.select_start_time);
+        selectEndTimeButton = rootView.findViewById(R.id.select_end_time);
+        selectIntenseStartTimeButton = rootView.findViewById(R.id.select_intense_start_time);
+        selectIntenseEndTimeButton = rootView.findViewById(R.id.select_intense_end_time);
+
         noBlackoutCheckBox.setChecked(viewModel.noBlackoutChecked);
         allDayCheckBox.setChecked(viewModel.allDayChecked);
         noIntenseBlackoutCheckBox.setChecked(viewModel.noIntenseBlackoutChecked);
         intenseAllDayCheckBox.setChecked(viewModel.intenseAllDayChecked);
 
-        rootView.findViewById(R.id.select_start_time).setOnClickListener(v -> showTimePickerDialog("start"));
-        rootView.findViewById(R.id.select_end_time).setOnClickListener(v -> showTimePickerDialog("end"));
-        rootView.findViewById(R.id.select_intense_start_time).setOnClickListener(v -> showTimePickerDialog("intense_start"));
-        rootView.findViewById(R.id.select_intense_end_time).setOnClickListener(v -> showTimePickerDialog("intense_end"));
+        selectStartTimeButton.setText(viewModel.startTime.isEmpty() ? "Выбрать начало" : viewModel.startTime);
+        selectEndTimeButton.setText(viewModel.endTime.isEmpty() ? "Выбрать конец" : viewModel.endTime);
+        selectIntenseStartTimeButton.setText(viewModel.intenseStartTime.isEmpty() ? "Начало усиленных отключений" : viewModel.intenseStartTime);
+        selectIntenseEndTimeButton.setText(viewModel.intenseEndTime.isEmpty() ? "Конец усиленных отключений" : viewModel.intenseEndTime);
+
+        selectStartTimeButton.setOnClickListener(v -> showTimePickerDialog("start"));
+        selectEndTimeButton.setOnClickListener(v -> showTimePickerDialog("end"));
+        selectIntenseStartTimeButton.setOnClickListener(v -> showTimePickerDialog("intense_start"));
+        selectIntenseEndTimeButton.setOnClickListener(v -> showTimePickerDialog("intense_end"));
 
         noBlackoutCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.noBlackoutChecked = isChecked);
         allDayCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.allDayChecked = isChecked);
@@ -60,12 +72,16 @@ public class TomorrowTab extends Fragment {
 
             if (type.equals("start")) {
                 viewModel.startTime = formattedTime;
+                selectStartTimeButton.setText(formattedTime);
             } else if (type.equals("end")) {
                 viewModel.endTime = formattedTime;
+                selectEndTimeButton.setText(formattedTime);
             } else if (type.equals("intense_start")) {
                 viewModel.intenseStartTime = formattedTime;
+                selectIntenseStartTimeButton.setText(formattedTime);
             } else if (type.equals("intense_end")) {
                 viewModel.intenseEndTime = formattedTime;
+                selectIntenseEndTimeButton.setText(formattedTime);
             }
         }, hour, minute, true);
         timePickerDialog.show();
