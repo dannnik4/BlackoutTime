@@ -44,7 +44,6 @@ public class TodayTab extends Fragment {
         noIntenseBlackoutCheckBox.setChecked(viewModel.noIntenseBlackoutChecked);
         intenseAllDayCheckBox.setChecked(viewModel.intenseAllDayChecked);
 
-        // Устанавливаем сохраненные значения времени на кнопках
         selectStartTimeButton.setText(viewModel.startTime.isEmpty() ? "Выбрать начало" : viewModel.startTime);
         selectEndTimeButton.setText(viewModel.endTime.isEmpty() ? "Выбрать конец" : viewModel.endTime);
         selectIntenseStartTimeButton.setText(viewModel.intenseStartTime.isEmpty() ? "Начало усиленных отключений" : viewModel.intenseStartTime);
